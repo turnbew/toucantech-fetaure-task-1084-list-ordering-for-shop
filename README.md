@@ -1,16 +1,18 @@
-TASK DATE: 24.11.2017 - Finished: 24.11.2017 (MEDIUM - I made it with ajax call)
+FOR PRIVACY AND CODE PROTECTING REASONS THIS IS A SIMPLIFIED VERSION OF CHANGES AND NEW FEATURES
+
+TASK DATE: 24.11.2017 - Finished: 24.11.2017 
+
+TASK LEVEL: (MEDIUM - I made it with ajax call)
 
 TASK SHORT DESCRIPTION: 1084 (list ordering for shop)
-
+	
 GITHUB REPOSITORY CODE: feature/task-1084-list-ordering-for-shop
-
-ORIGINAL WORK: https://github.com/BusinessBecause/network-site/tree/feature/task-1084-list-ordering-for-shop
 
 CHANGES
  
 	IN FILES: 
 		
-		\network-site\addons\default\modules\network_settings\controllers\shop\admin_products.php
+		admin_products.php
 	
 			ADDED CODE: //inside index function 
 			
@@ -42,8 +44,7 @@ CHANGES
 				}				
 		
 		
-		
-		\network-site\addons\default\modules\firesale\models\products_m.php
+		products_m.php
 		
 			ADDED CODE: //inside get_products_ids()
 			
@@ -64,14 +65,7 @@ CHANGES
 						$product = ($direction == 'up') 
 										? $this->get_product_previous_in_order($product_order)
 										: $this->get_product_next_in_order($product_order);
-
-						$this->db->set('product_order', $product_order);
-						$this->db->where('id', $product[0]['id']);
-						$this->db->update($this->_table);
-
-						$this->db->set('product_order', $product[0]['product_order']);
-						$this->db->where('id', $id);
-						$this->db->update($this->_table);
+						..................
 
 						return true;
 					}
@@ -134,16 +128,13 @@ CHANGES
 						$counter = 1;
 						foreach ($query->result() as $row)
 						{
-							$this->db->set('product_order', $counter);
-							$this->db->where('id', $row->id);
-							$this->db->update($this->_table); 					
-							$counter++;
+							..............
 						}
 					}			
 	
 	
 	
-		\network-site\addons\default\modules\network_settings\views\content\shop\products\table.php
+		table.php
 		
 			CHANGE CODE: 
 			
@@ -187,7 +178,7 @@ CHANGES
 	
 	
 	
-		\network-site\addons\default\modules\firesale\details.php
+		details.php
 		
 			ADDED CODE: //Inside install and upgrade function 
 			
@@ -219,7 +210,7 @@ CHANGES
 	
 	
 	
-		\network-site\addons\default\modules\network_settings\js\network_settings.js
+		network_settings.js
 		
 			ADDED CODE: 
 			
@@ -234,7 +225,7 @@ CHANGES
 	
 	
 	
-		\network-site\addons\default\modules\firesale\language\english\firesale_lang.php
+		firesale_lang.php
 		
 			ADDED CODE: 
 			
@@ -242,7 +233,7 @@ CHANGES
 				$lang['firesale:move_product_up_title']                 = 'Move product up in order';
 				$lang['firesale:move_product_down_title']               = 'Move product down in order';				
 	
-		CHANGED QUITE NEW FILE: \network-site\assets\_commons\common_ajax.js
+		CHANGED QUITE NEW FILE: common_ajax.js
 		
 			CODE IN IT: 	
 				
